@@ -1,0 +1,21 @@
+{
+  "compilerOptions": {
+    "target": "es5",
+    "module": "commonjs",
+    "lib": [
+      "es2015"
+    ],
+    "strict": true,
+    "outDir": "dist",
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "inlineSourceMap": true,
+    "allowJs": true,
+    "inlineSources": true
+  },
+  "include": [
+    "typings/**/*.d.ts",
+    "src/**/*.ts"
+  ],
+  "compileOnSave": true
+}
