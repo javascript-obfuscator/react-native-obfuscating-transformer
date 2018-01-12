@@ -7,15 +7,26 @@
     ],
     "strict": true,
     "outDir": "dist",
+    "moduleResolution": "node",
     "noUnusedLocals": true,
     "noUnusedParameters": true,
     "inlineSourceMap": true,
-    "allowJs": true,
+    "baseUrl": ".",
+    "declaration": true,
+    "paths": {
+      "javascript-obfuscator": [
+        "typings/javascript-obfuscator.d.ts"
+      ]
+    },
+    "experimentalDecorators": true,
     "inlineSources": true
   },
   "include": [
-    "typings/**/*.d.ts",
-    "src/**/*.ts"
+    "typings",
+    "src"
+  ],
+  "exclude": [
+    "node_modules"
   ],
   "compileOnSave": true
 }
