@@ -1,17 +1,22 @@
 import { Node } from "babel-core"
 import { RawSourceMap } from "source-map"
 import * as semver from "semver"
+import { MetroRawSourceMap } from "./composeSourceMaps"
 
 export interface MetroTransformer {
   transform(props: {
     filename: string
     src: string
     options: object
-  }): { ast?: Node; code?: string; map?: string | RawSourceMap }
+  }): {
+    ast?: Node
+    code?: string
+    map?: string | RawSourceMap | MetroRawSourceMap
+  }
   getCacheKey?(): string
 }
 
-export function getMetroTransformer(): MetroTransformer {
+function getReactNativeMinorVersion(): number {
   const reactNativeVersionString = require("react-native/package.json").version
 
   const parseResult = semver.parse(reactNativeVersionString)
@@ -22,8 +27,12 @@ export function getMetroTransformer(): MetroTransformer {
     )
   }
 
-  const reactNativeMinorVersion = parseResult.minor
+  return parseResult.minor
+}
 
+export function getMetroTransformer(
+  reactNativeMinorVersion: number = getReactNativeMinorVersion(),
+): MetroTransformer {
   if (reactNativeMinorVersion >= 52) {
     return require("metro/src/transformer")
   } else if (reactNativeMinorVersion >= 0.47) {
@@ -32,7 +41,7 @@ export function getMetroTransformer(): MetroTransformer {
     return require("metro-bundler/build/transformer")
   } else {
     throw new Error(
-      `react-native-obfuscating-transformer requires react-native >= 0.46, you are on version ${reactNativeVersionString}`,
+      `react-native-obfuscating-transformer requires react-native >= 0.46`,
     )
   }
 }

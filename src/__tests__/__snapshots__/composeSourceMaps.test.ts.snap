@@ -1,0 +1,122 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`composeSourceMaps composes two source maps together 1`] = `
+"console.log(\\"line6\\");
+export const line8 = true;
+//# sourceMappingURL=hello.js.map"
+`;
+
+exports[`composeSourceMaps composes two source maps together 2`] = `
+"Object.defineProperty(exports, \\"__esModule\\", {
+  value: true
+});
+console.log(\\"line6\\");
+var line8 = exports.line8 = true;"
+`;
+
+exports[`convertMetroRawSourceMapToStandardSourceMap takes a raw source map and converts it to a non-raw source map 1`] = `
+Array [
+  Array [
+    4,
+    0,
+    1,
+    7,
+  ],
+  Array [
+    4,
+    4,
+    1,
+    13,
+    "line1",
+  ],
+  Array [
+    4,
+    28,
+    1,
+    21,
+  ],
+  Array [
+    4,
+    29,
+    1,
+    7,
+  ],
+  Array [
+    5,
+    0,
+    2,
+    7,
+  ],
+  Array [
+    5,
+    4,
+    2,
+    13,
+    "line2",
+  ],
+  Array [
+    5,
+    28,
+    2,
+    21,
+  ],
+  Array [
+    5,
+    29,
+    2,
+    7,
+  ],
+  Array [
+    6,
+    0,
+    3,
+    7,
+  ],
+  Array [
+    6,
+    4,
+    3,
+    13,
+    "line3",
+  ],
+  Array [
+    6,
+    28,
+    3,
+    21,
+  ],
+  Array [
+    6,
+    29,
+    3,
+    7,
+  ],
+  Array [
+    8,
+    0,
+    5,
+    7,
+  ],
+  Array [
+    8,
+    4,
+    5,
+    13,
+    "line5",
+  ],
+  Array [
+    8,
+    28,
+    5,
+    21,
+  ],
+  Array [
+    8,
+    29,
+    5,
+    7,
+  ],
+]
+`;
+
+exports[`convertMetroRawSourceMapToStandardSourceMap takes a raw source map and converts it to a non-raw source map 2`] = `"{\\"version\\":3,\\"sources\\":[\\"/Users/dshe/code/react-native-obfuscating-transformer/src/__tests__/numberedLines.js\\"],\\"names\\":[\\"line1\\",\\"line2\\",\\"line3\\",\\"line5\\"],\\"mappings\\":\\";;;AAAO,IAAMA,wBAAQ,CAAd;AACA,IAAMC,wBAAQ,CAAd;AACA,IAAMC,wBAAQ,CAAd;;AAEA,IAAMC,wBAAQ,CAAd\\",\\"sourcesContent\\":[\\"export const line1 = 1\\\\nexport const line2 = 2\\\\nexport const line3 = 3\\\\n\\\\nexport const line5 = 5\\\\n\\"]}"`;

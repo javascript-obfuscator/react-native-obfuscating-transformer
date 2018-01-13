@@ -28,6 +28,7 @@
     "*.ts": ["prettier --no-semi --single-quote --trailing-comma es5"]
   },
   "devDependencies": {
+    "@types/jest": "^22.0.1",
     "babel-preset-react-native": "^1.9.1",
     "husky": "^0.13.3",
     "jest": "^22.0.6",
@@ -45,6 +46,6 @@
       ".(ts|tsx)": "<rootDir>/node_modules/ts-jest/preprocessor.js"
     },
     "testRegex": "src/.*(/__tests__/.*|\\.(test|spec))\\.(ts|tsx|js)$",
-    "moduleFileExtensions": ["ts", "tsx", "js"]
+    "moduleFileExtensions": ["ts", "tsx", "js", "json"]
   }
 }

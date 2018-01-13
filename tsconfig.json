@@ -11,8 +11,8 @@
     "noUnusedLocals": true,
     "noUnusedParameters": true,
     "inlineSourceMap": true,
-    "baseUrl": ".",
     "declaration": true,
+    "baseUrl": ".",
     "paths": {
       "javascript-obfuscator": [
         "typings/javascript-obfuscator.d.ts"
@@ -26,7 +26,8 @@
     "src"
   ],
   "exclude": [
-    "node_modules"
+    "node_modules",
+    "src/__test__/**/*"
   ],
   "compileOnSave": true
 }
