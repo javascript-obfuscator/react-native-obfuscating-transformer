@@ -10,7 +10,6 @@
     "moduleResolution": "node",
     "noUnusedLocals": true,
     "noUnusedParameters": true,
-    "inlineSourceMap": true,
     "declaration": true,
     "baseUrl": ".",
     "paths": {
@@ -19,7 +18,6 @@
       ]
     },
     "experimentalDecorators": true,
-    "inlineSources": true
   },
   "include": [
     "typings",
