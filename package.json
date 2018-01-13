@@ -30,7 +30,7 @@
   "typings": "dist/index.d.ts",
   "lint-staged": {
     "**/*.ts": [
-      "prettier --list-different --no-semi --single-quote --trailing-comma es5"
+      "prettier --list-different --no-semi --trailing-comma all"
     ]
   },
   "devDependencies": {
