@@ -3,16 +3,18 @@ import { RawSourceMap } from "source-map"
 import * as semver from "semver"
 import { MetroRawSourceMap } from "./composeSourceMaps"
 
+export interface MetroTransformerResult {
+  ast?: Node
+  code?: string
+  map?: string | RawSourceMap | MetroRawSourceMap
+}
+
 export interface MetroTransformer {
   transform(props: {
     filename: string
     src: string
     options: object
-  }): {
-    ast?: Node
-    code?: string
-    map?: string | RawSourceMap | MetroRawSourceMap
-  }
+  }): MetroTransformerResult
   getCacheKey?(): string
 }
 
