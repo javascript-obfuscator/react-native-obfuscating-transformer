@@ -29,8 +29,8 @@
   },
   "typings": "dist/index.d.ts",
   "lint-staged": {
-    "*.ts": [
-      "prettier --no-semi --single-quote --trailing-comma es5"
+    "**/*.ts": [
+      "prettier --list-different --no-semi --single-quote --trailing-comma es5"
     ]
   },
   "devDependencies": {
@@ -52,18 +52,12 @@
     "transform": {
       ".(ts|tsx)": "<rootDir>/node_modules/ts-jest/preprocessor.js"
     },
-    "transformIgnorePatterns": [
-      "node_modules/(?!(javascript-obfuscator)/)"
-    ],
+    "transformIgnorePatterns": ["node_modules/(?!(javascript-obfuscator)/)"],
     "moduleNameMapper": {
-      "javascript-obfuscator": "<rootDir>/node_modules/javascript-obfuscator/index.ts"
+      "javascript-obfuscator":
+        "<rootDir>/node_modules/javascript-obfuscator/index.ts"
     },
     "testRegex": "src/.*(/__tests__/.*|\\.(test|spec))\\.(ts|tsx|js)$",
-    "moduleFileExtensions": [
-      "ts",
-      "tsx",
-      "js",
-      "json"
-    ]
+    "moduleFileExtensions": ["ts", "tsx", "js", "json"]
   }
 }
