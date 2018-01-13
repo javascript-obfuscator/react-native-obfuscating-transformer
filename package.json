@@ -23,6 +23,7 @@
     "react-native": ">=0.45.0"
   },
   "scripts": {
+    "build": "rm -rf dist && tsc",
     "precommit": "tsc && lint-staged",
     "test": "jest"
   },
