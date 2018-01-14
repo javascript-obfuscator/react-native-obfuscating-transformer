@@ -2,6 +2,14 @@
 
 Obfuscate selected source files when building react-native bundles.
 
+## Installation
+
+    yarn add react-native-obfuscating-transformer --dev
+    
+or
+
+    npm install react-native-obfuscating-transformer --save-dev
+
 ## Usage
 
 ### /rn-cli.config.js
