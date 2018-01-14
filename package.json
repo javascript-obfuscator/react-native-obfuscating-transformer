@@ -1,6 +1,6 @@
 {
   "name": "react-native-obfuscating-transformer",
-  "version": "1.0.0-0",
+  "version": "1.0.0-rc.0",
   "description": "Obfuscating transformer for react-native",
   "main": "dist/index.js",
   "repository": "https://github.com/ds300/react-native-obfuscating-transformer",
@@ -41,7 +41,7 @@
     "lint-staged": "^3.4.1",
     "metro": "^0.24.3",
     "metro-bundler": "^0.9.0",
-    "np": "^2.15.0",
+    "np": "^2.18.3",
     "prettier": "^1.10.2",
     "react-native": "^0.45.1",
     "ts-jest": "^22.0.1",
@@ -52,12 +52,18 @@
     "transform": {
       ".(ts|tsx)": "<rootDir>/node_modules/ts-jest/preprocessor.js"
     },
-    "transformIgnorePatterns": ["node_modules/(?!(javascript-obfuscator)/)"],
+    "transformIgnorePatterns": [
+      "node_modules/(?!(javascript-obfuscator)/)"
+    ],
     "moduleNameMapper": {
-      "javascript-obfuscator":
-        "<rootDir>/node_modules/javascript-obfuscator/index.ts"
+      "javascript-obfuscator": "<rootDir>/node_modules/javascript-obfuscator/index.ts"
     },
     "testRegex": "src/.*(/__tests__/.*|\\.(test|spec))\\.(ts|tsx|js)$",
-    "moduleFileExtensions": ["ts", "tsx", "js", "json"]
+    "moduleFileExtensions": [
+      "ts",
+      "tsx",
+      "js",
+      "json"
+    ]
   }
 }
