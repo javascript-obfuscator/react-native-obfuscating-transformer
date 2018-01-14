@@ -1,7 +1,10 @@
 import { Node } from "babel-core"
 import { RawSourceMap, SourceMapConsumer } from "source-map"
 import * as semver from "semver"
-import { MetroRawSourceMap } from "./composeSourceMaps"
+import {
+  MetroRawSourceMap,
+  convertStandardSourceMapToMetroRawSourceMap,
+} from "./composeSourceMaps"
 import * as babylon from "babylon"
 import traverse from "babel-traverse"
 
@@ -56,9 +59,10 @@ export interface ReactNativeObfuscatingTransformerDefaultResult {
 }
 
 export function maybeTransformMetroResult(
+  upstreamResult: MetroTransformerResult,
   { code, map }: ReactNativeObfuscatingTransformerDefaultResult,
   reactNativeMinorVersion: number = getReactNativeMinorVersion(),
-): ReactNativeObfuscatingTransformerDefaultResult | { ast: Node } {
+): MetroTransformerResult {
   if (reactNativeMinorVersion >= 52) {
     // convert code and map to ast
     const ast = babylon.parse(code, {
@@ -82,6 +86,8 @@ export function maybeTransformMetroResult(
     })
 
     return { ast }
+  } else if (Array.isArray(upstreamResult.map)) {
+    return { code, map: convertStandardSourceMapToMetroRawSourceMap(map) }
   } else {
     return { code, map }
   }

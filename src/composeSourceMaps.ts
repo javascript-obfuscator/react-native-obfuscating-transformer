@@ -32,6 +32,26 @@ export function convertMetroRawSourceMapToStandardSourceMap(
   return outputMap.toString()
 }
 
+export function convertStandardSourceMapToMetroRawSourceMap(
+  map: RawSourceMap | string,
+) {
+  const consumer = new SourceMapConsumer(map as any) // upstream types are wrong
+
+  const outputMap: MetroRawSourceMap = []
+
+  consumer.eachMapping(mapping => {
+    outputMap.push([
+      mapping.generatedLine,
+      mapping.generatedColumn,
+      mapping.originalLine,
+      mapping.originalColumn,
+      mapping.name,
+    ])
+  })
+
+  return outputMap
+}
+
 export function composeSourceMaps(
   sourceMap: string | RawSourceMap,
   targetMap: string | RawSourceMap,

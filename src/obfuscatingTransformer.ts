@@ -91,6 +91,7 @@ export function obfuscatingTransformer({
         }
 
         return maybeTransformMetroResult(
+          result,
           obfuscateCodePreservingSourceMap(
             code,
             map,

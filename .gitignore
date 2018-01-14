@@ -56,3 +56,4 @@ jspm_packages/
 
 dist
 package
+*.tar.gz
