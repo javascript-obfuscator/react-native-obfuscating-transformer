@@ -17,6 +17,7 @@ import {
   obfuscateCode,
   obfuscateCodePreservingSourceMap,
 } from "./obfuscateCode"
+import { extendFileExtension } from "./extendFileExtension"
 
 function getOwnCacheKey(upstreamCacheKey: string, configFilename: string) {
   var key = crypto.createHash("md5")
@@ -31,6 +32,7 @@ export interface ObfuscatingTransformerOptions {
   upstreamTransformer?: MetroTransformer
   obfuscatorOptions?: JavaScriptObfuscator.Options
   trace?: boolean
+  emitObfuscatedFiles?: boolean
 }
 
 const sourceDir = path.join(appRootPath, "src")
@@ -77,6 +79,15 @@ export function obfuscatingTransformer({
           return {
             code: obfuscateCode(code, obfuscatorOptions),
           }
+        }
+
+        if (otherOptions.emitObfuscatedFiles) {
+          const emitDir = path.dirname(props.filename)
+          const filename = extendFileExtension(
+            path.basename(props.filename),
+            "obfuscated",
+          )
+          fs.writeFileSync(path.join(emitDir, filename), code)
         }
 
         return maybeTransformMetroResult(
