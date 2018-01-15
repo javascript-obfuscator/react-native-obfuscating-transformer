@@ -1,6 +1,6 @@
 # react-native-obfuscating-transformer
 
-Obfuscate selected source files when building react-native bundles.
+Obfuscate selected source files when building for React Native.
 
 ## Installation
 
