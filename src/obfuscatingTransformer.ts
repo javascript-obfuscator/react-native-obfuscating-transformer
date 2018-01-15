@@ -33,6 +33,7 @@ export interface ObfuscatingTransformerOptions {
   obfuscatorOptions?: JavaScriptObfuscator.Options
   trace?: boolean
   emitObfuscatedFiles?: boolean
+  enableInDevelopment?: boolean
 }
 
 const sourceDir = path.join(appRootPath, "src")
@@ -55,6 +56,11 @@ export function obfuscatingTransformer({
   return {
     transform(props) {
       const result = upstreamTransformer.transform(props)
+
+      if (props.options.dev && !otherOptions.enableInDevelopment) {
+        return result
+      }
+
       const resultCanBeObfuscated = result.code || result.ast
 
       if (resultCanBeObfuscated && filter(props.filename, props.src)) {

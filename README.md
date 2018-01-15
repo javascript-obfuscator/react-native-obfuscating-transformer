@@ -100,9 +100,19 @@ interface ObfuscatorOptions {
 
 Iff true, prints a list of files being obfuscated
 
+#### Default value: `false`
+
 ### `emitObfuscatedFiles: boolean`
 
 Iff true, emits the obfuscated versions of files alongside their originals, for comparison.
+
+#### Default value: `false`
+
+### `enableInDevelopment: boolean`
+
+Iff true, enables obfuscation in development mode. This is true by default.
+
+#### Default value: `false`
 
 ## License
 

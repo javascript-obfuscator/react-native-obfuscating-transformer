@@ -18,7 +18,11 @@ export interface MetroTransformer {
   transform(props: {
     filename: string
     src: string
-    options: object
+    options: {
+      dev?: boolean
+      retainLines?: boolean
+      // others unused
+    }
   }): MetroTransformerResult
   getCacheKey?(): string
 }
