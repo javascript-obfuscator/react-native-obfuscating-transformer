@@ -110,7 +110,7 @@ Iff true, emits the obfuscated versions of files alongside their originals, for 
 
 ### `enableInDevelopment: boolean`
 
-Iff true, enables obfuscation in development mode. This is true by default.
+Iff true, enables obfuscation in development mode.
 
 #### Default value: `false`
 
