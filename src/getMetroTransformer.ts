@@ -44,7 +44,9 @@ function getReactNativeMinorVersion(): number {
 export function getMetroTransformer(
   reactNativeMinorVersion: number = getReactNativeMinorVersion(),
 ): MetroTransformer {
-  if (reactNativeMinorVersion >= 52) {
+  if (reactNativeMinorVersion >= 56) {
+    return require("metro/src/reactNativeTransformer")
+  } else if (reactNativeMinorVersion >= 52) {
     return require("metro/src/transformer")
   } else if (reactNativeMinorVersion >= 0.47) {
     return require("metro-bundler/src/transformer")
@@ -74,20 +76,20 @@ export function maybeTransformMetroResult(
     })
 
     const mapConsumer = new SourceMapConsumer(map as any) // upstream types are wrong
-    ;(traverse as any).cheap(ast, (node: Node) => {
-      if (node.loc) {
-        const originalStart = mapConsumer.originalPositionFor(node.loc.start)
-        if (originalStart.line) {
-          node.loc.start.line = originalStart.line
-          node.loc.start.column = originalStart.column
+      ; (traverse as any).cheap(ast, (node: Node) => {
+        if (node.loc) {
+          const originalStart = mapConsumer.originalPositionFor(node.loc.start)
+          if (originalStart.line) {
+            node.loc.start.line = originalStart.line
+            node.loc.start.column = originalStart.column
+          }
+          const originalEnd = mapConsumer.originalPositionFor(node.loc.end)
+          if (originalEnd.line) {
+            node.loc.end.line = originalEnd.line
+            node.loc.end.column = originalEnd.column
+          }
         }
-        const originalEnd = mapConsumer.originalPositionFor(node.loc.end)
-        if (originalEnd.line) {
-          node.loc.end.line = originalEnd.line
-          node.loc.end.column = originalEnd.column
-        }
-      }
-    })
+      })
 
     return { ast }
   } else if (Array.isArray(upstreamResult.map)) {

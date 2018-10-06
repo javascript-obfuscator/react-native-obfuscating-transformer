@@ -13,7 +13,7 @@
     "@types/node": "^9.3.0",
     "@types/semver": "^5.4.0",
     "app-root-path": "^2.0.1",
-    "babel-generator": "^6.26.0",
+    "babel-generator": "^6.26.1",
     "javascript-obfuscator": "^0.13.0",
     "jju": "^1.3.0",
     "semver": "^5.4.1",
@@ -30,7 +30,7 @@
   "typings": "dist/index.d.ts",
   "lint-staged": {
     "**/*.ts": [
-      "prettier --list-different --no-semi --trailing-comma all"
+      "prettier --no-semi --trailing-comma all"
     ]
   },
   "devDependencies": {
@@ -39,11 +39,11 @@
     "husky": "^0.13.3",
     "jest": "^22.0.6",
     "lint-staged": "^3.4.1",
-    "metro": "^0.24.3",
-    "metro-bundler": "^0.9.0",
+    "metro": "^0.45.6",
+    "metro-bundler": "^0.22.1",
     "np": "^2.18.3",
     "prettier": "^1.10.2",
-    "react-native": "^0.45.1",
+    "react-native": "^0.57.1",
     "ts-jest": "^22.0.1",
     "ts-node": "^4.1.0",
     "typescript": "^2.6.2"
