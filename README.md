@@ -5,7 +5,7 @@ Obfuscate selected source files when building for React Native.
 ## Installation
 
     yarn add react-native-obfuscating-transformer --dev
-    
+
 or
 
     npm install react-native-obfuscating-transformer --save-dev
@@ -16,8 +16,8 @@ or
 
 ```diff
  module.exports = {
-+  getTransformModulePath() {
-+    return require.resolve("./transformer")
++  transformer {
++    babelTransformerPath: require.resolve("./transformer")
 +  },
  }
 ```
