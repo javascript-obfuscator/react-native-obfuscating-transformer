@@ -1,6 +1,6 @@
 {
   "name": "react-native-obfuscating-transformer",
-  "version": "1.0.0-rc.1",
+  "version": "1.0.0",
   "description": "Obfuscating transformer for react-native",
   "main": "dist/index.js",
   "repository": "https://github.com/ds300/react-native-obfuscating-transformer",
@@ -41,7 +41,7 @@
     "lint-staged": "^3.4.1",
     "metro": "^0.45.6",
     "metro-bundler": "^0.22.1",
-    "np": "^2.18.3",
+    "np": "^4.0.2",
     "prettier": "^1.10.2",
     "react-native": "^0.57.1",
     "ts-jest": "^22.0.1",
