@@ -114,6 +114,14 @@ Iff true, enables obfuscation in development mode.
 
 #### Default value: `false`
 
+### `enableOnlyForPlatform: string | string[]`
+
+Enables obfuscation only for the specified platform.
+If falsy, enables obfuscation for all platforms.
+For example `['ios']` enables obfuscation only for IOS.
+
+#### Default value: `false`
+
 ## License
 
 MIT

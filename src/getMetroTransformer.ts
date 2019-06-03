@@ -20,6 +20,7 @@ export interface MetroTransformer {
     src: string
     options: {
       dev?: boolean
+      platform?: string
       retainLines?: boolean
       // others unused
     }

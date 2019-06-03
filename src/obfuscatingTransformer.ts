@@ -34,6 +34,7 @@ export interface ObfuscatingTransformerOptions {
   trace?: boolean
   emitObfuscatedFiles?: boolean
   enableInDevelopment?: boolean
+  enableOnlyForPlatform?: string | string[]
 }
 
 const sourceDir = path.join(appRootPath, "src")
@@ -59,6 +60,18 @@ export function obfuscatingTransformer({
 
       if (props.options.dev && !otherOptions.enableInDevelopment) {
         return result
+      }
+
+      if (otherOptions.enableOnlyForPlatform && props.options.platform) {
+        if (Array.isArray(otherOptions.enableOnlyForPlatform)) {
+          if (otherOptions.enableOnlyForPlatform.every(
+            platform => platform !== props.options.platform,
+          )) {
+            return result
+          }
+        } else if (otherOptions.enableOnlyForPlatform !== props.options.platform) {
+          return result
+        }
       }
 
       const resultCanBeObfuscated = result.code || result.ast
