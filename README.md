@@ -12,7 +12,7 @@ or
 
 ## Usage
 
-### /rn-cli.config.js
+### /metro.config.js
 
 ```diff
  module.exports = {
