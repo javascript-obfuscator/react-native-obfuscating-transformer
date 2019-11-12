@@ -18,7 +18,7 @@ or
 
 ```diff
  module.exports = {
-+  transformer {
++  transformer: {
 +    babelTransformerPath: require.resolve("./transformer")
 +  },
  }
@@ -40,7 +40,7 @@ module.exports = obfuscatingTransformer({
 
 ```diff
  module.exports = {
-+  transformer {
++  transformer: {
 +    babelTransformerPath: require.resolve("./transformer")
 +  },
  }
