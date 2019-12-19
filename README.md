@@ -12,17 +12,41 @@ or
 
 ## Usage
 
-### /rn-cli.config.js
+### React Native >= 0.59
+
+#### /metro.config.js
 
 ```diff
  module.exports = {
-+  transformer {
++  transformer: {
 +    babelTransformerPath: require.resolve("./transformer")
 +  },
  }
 ```
 
-### /transformer.js
+#### /transformer.js
+
+```js
+const obfuscatingTransformer = require("react-native-obfuscating-transformer")
+
+module.exports = obfuscatingTransformer({
+  /* options */
+})
+```
+
+### React Native < 0.59
+
+### /rn-cli.config.js
+
+```diff
+ module.exports = {
++  transformer: {
++    babelTransformerPath: require.resolve("./transformer")
++  },
+ }
+```
+
+#### /transformer.js
 
 ```js
 const obfuscatingTransformer = require("react-native-obfuscating-transformer")

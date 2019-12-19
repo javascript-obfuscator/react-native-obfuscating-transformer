@@ -44,7 +44,9 @@ function getReactNativeMinorVersion(): number {
 export function getMetroTransformer(
   reactNativeMinorVersion: number = getReactNativeMinorVersion(),
 ): MetroTransformer {
-  if (reactNativeMinorVersion >= 56) {
+  if (reactNativeMinorVersion >= 59) {
+    return require('metro-react-native-babel-transformer/src/index')
+  } else if (reactNativeMinorVersion >= 56) {
     return require("metro/src/reactNativeTransformer")
   } else if (reactNativeMinorVersion >= 52) {
     return require("metro/src/transformer")
