@@ -1,6 +1,6 @@
 {
   "name": "react-native-obfuscating-transformer",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Obfuscating transformer for react-native",
   "main": "dist/index.js",
   "repository": "https://github.com/ds300/react-native-obfuscating-transformer",
@@ -10,8 +10,6 @@
     "@types/app-root-path": "^1.2.4",
     "@types/babel-core": "^6.25.3",
     "@types/babel-generator": "^6.25.1",
-    "babel-traverse": "^6.26.0",
-    "babylon": "^6.18.0",
     "@types/node": "^9.3.0",
     "@types/semver": "^5.4.0",
     "app-root-path": "^2.0.1",
