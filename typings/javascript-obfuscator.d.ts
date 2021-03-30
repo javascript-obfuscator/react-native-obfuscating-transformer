@@ -22,7 +22,7 @@ declare module "javascript-obfuscator" {
       sourceMapFileName?: string
       sourceMapMode?: "separate" | "inline"
       stringArray?: boolean
-      stringArrayEncoding?: boolean
+      stringArrayEncoding?: string[]
       stringArrayThreshold?: 0.75
       target?: "browser" | "extension" | "node"
       unicodeEscapeSequence?: boolean
