@@ -54,7 +54,7 @@ jspm_packages/
 # dotenv environment variables file
 .env
 
-dist
+
 package
 *.tar.gz
 
