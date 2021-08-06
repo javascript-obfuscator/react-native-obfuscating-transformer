@@ -4295,9 +4295,9 @@ istanbul-reports@^1.5.1:
   dependencies:
     handlebars "^4.0.3"
 
-javascript-obfuscator@^0.13.0:
-  version "0.13.0"
-  resolved "https://registry.yarnpkg.com/javascript-obfuscator/-/javascript-obfuscator-0.13.0.tgz#a6dadad98a602f9e0917ab42ec9f6e3f6def1da8"
+javascript-obfuscator@^1.3.0:
+  version "1.3.0"
+  resolved "https://registry.yarnpkg.com/javascript-obfuscator/-/javascript-obfuscator-1.3.0.tgz#a6dadad98a602f9e0917ab42ec9f6e3f6def1da8"
   integrity sha512-81vHJ3i1A+reeD5CcIVK1n0EGGRYBlT7dWx8vMDJRAb0kGnaS48WQEKJ056ybHEMLHtPvS2IuRanISmL7b9SdQ==
   dependencies:
     chalk "2.3.0"
