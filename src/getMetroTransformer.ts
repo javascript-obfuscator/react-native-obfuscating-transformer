@@ -1,12 +1,13 @@
-import { Node } from "babel-core"
+import { Node } from "@babel/core"
 import { RawSourceMap, SourceMapConsumer } from "source-map"
 import * as semver from "semver"
 import {
   MetroRawSourceMap,
   convertStandardSourceMapToMetroRawSourceMap,
 } from "./composeSourceMaps"
-import * as babylon from "babylon"
-import traverse from "babel-traverse"
+import * as babylon from "@babel/parser"
+import traverse from "@babel/traverse"
+import generate from "@babel/generator";
 
 export interface MetroTransformerResult {
   ast?: Node
@@ -99,4 +100,28 @@ export function maybeTransformMetroResult(
   } else {
     return { code, map }
   }
+}
+
+export function generateAndConvert(ast: Node, filename: string): MetroTransformerResult {
+  let generatorResult = generate(ast, {
+    filename: filename,
+    retainLines: true,
+    sourceMaps: true,
+    sourceFileName: filename,
+  });
+
+  if (!generatorResult.map) {
+    return {code: generatorResult.code};
+  }
+
+  const map = {
+    version: generatorResult.map.version + "",
+    mappings: generatorResult.map.mappings,
+    names: generatorResult.map.names,
+    sources: generatorResult.map.sources,
+    sourcesContent: generatorResult.map.sourcesContent,
+    file: generatorResult.map.file
+  }
+
+  return {code: generatorResult.code, map: map};
 }
